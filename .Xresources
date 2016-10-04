@@ -1,0 +1,132 @@
+! URXVT FONTS
+!------------------------------------------------
+
+URxvt*font: xft:Hack-Regular:pixelsize=16:antialias=true:hinting=true
+URxvt*boldFont: xft:Hack-Bold:pixelsize=16:antialias=true:hinting:true
+!URxvt*letterSpace: -1
+URxvt*allow_bold: true
+URxvt.loginShell: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+!URxvt.saveLines: 10000
+!URxvt.internalBorder:  10
+
+!URxvt.geometry: 75x20
+
+!Xft.hintstyle:  hintslight
+
+URxvt.colorIT:      #7a232c
+URxvt.colorBD:      #545454
+URxvt.colorUL:      #7a3225
+URxvt.lineSpace: 2
+
+URxvt.cursorBlink: 1
+URxvt.cursorUnderline: 1
+
+URxvt.skipBuiltinGlyphs:    true
+!URxvt.termName: screen-256color-italic
+
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+!rofi.color-normal: #070708,  #c8c6c3,  #070708,  #141414,  #7a3225
+!rofi.color-urgent: #070708,  #c8c6c3,  #070708,  #141414,  #7a3225
+!rofi.color-active: #070708,  #c8c6c3,  #070708,  #141414,  #7a3225
+
+! !                  'background', 'border'
+!rofi.color-window: #070708,      #141414
+
+! URXVT ENABLE LINK SUPPORT
+!------------------------------------------------
+
+URxvt.perl-ext-common: default,matcher
+!tabbed
+URxvt.matcher.button:   	1
+URxvt.url-launcher:		/usr/bin/chromium
+URxvt.url-select.launcher:	/usr/bin/chromium
+URxvt.url-select.underline: 	true
+
+!disable the fucking bell
+URxvt.insecure: 			false 
+
+! URXVT SCROLLBAR AND CURSOR STYLE
+!------------------------------------------------
+
+URxvt*saveLines: 			300000
+URxvt.scrollBar: 			false
+!URxvt*scrollstyle:			plain
+URxvt*cursorBlink: 			false
+URxvt*cursorUnderline: 			false
+URxvt*cursorColor: 			#dedede
+!URxvt.tintColor: 			#101010
+! URXVT TABS
+!------------------------------------------------
+
+!URxvt.tabbedex.autohide: 	yes
+!URxvt.tabbedex.tabbar-fg: 	2
+!URxvt.tabbedex.tabbar-bg: 	0
+!URxvt.tabbedex.tab-fg:    	10
+!URxvt.tabbedex.tab-bg:    	0
+!URxvt.tabbedex.title: 		yes
+!URxvt.tabbedex.new-button:  no
+
+!ajibola
+
+!urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0200/c800
+!urxvt*transparent: true
+!urxvt*shading: 80
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tabbar-fg: -2
+URxvt.tabbed.tab-bg: -2
+
+! special
+*.foreground:   #d2d0d4
+*.background:   #222024
+*.cursorColor:  #d2d0d4
+
+! black
+*.color0:       #222024
+*.color8:       #727074
+
+! red
+*.color1:       #bc8ec9
+*.color9:       #b469c9
+
+! green
+*.color2:       #8ea6a4
+*.color10:      #5aa6a0
+
+! yellow
+*.color3:       #a7e3c0
+*.color11:      #79e3a5
+
+! blue
+*.color4:       #6c6ba4
+*.color12:      #5452a4
+
+! magenta
+*.color5:       #888097
+*.color13:      #786897
+
+! cyan
+*.color6:       #5f9398
+*.color14:      #3d8888
+
+! white
+*.color7:       #d2d0d4
+*.color15:      #f2f0f4
+
+
+Xft.dpi:        96:unscaled
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcddefault
+
+! State:            bg,       fg,       bgalt,    hlbg,     hlfg
+rofi.color-normal:  #2d2d2d,   #d3d0c8,   #2d2d2d,   #747369,   #f2f0ec
+rofi.color-urgent:  #2d2d2d,   #d3d0c8,   #2d2d2d,   #747369,   #f2f0ec
+rofi.color-active:  #2d2d2d,   #d3d0c8,   #2d2d2d,   #747369,   #f2f0ec
+
+!                   background,     border
+rofi.color-window:  #2d2d2d,        #8ea68e

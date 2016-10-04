@@ -1,0 +1,291 @@
+### STARTUP APPLICATIONS
+#exec --no-startup-id pulseaudio --start &
+exec --no-startup-id xset -b &
+#exec --no-startup-id compton --config ~/.config/compton.conf -b 
+exec --no-startup-id ~/.fehbg &
+exec --no-startup-id redshift -l -16.75:-49.29 &
+exec --no-startup-id setxkbmap br &
+exec --no-startup-id test -f $HOME/.Xresources && xrdb -merge $HOME/.Xresources
+exec --no-startup-id nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+#exec --no-startup-id unclutter -idle 1 -root -grab &
+
+### okubax 2014;i3 config file (v2) ###
+
+set $mod Mod1
+
+# Set default container layout: workspace_layout <default|stacking|tabbed>
+workspace_layout tabbed
+
+for_window [instance="urxvt|termite"] layout default
+for_window [class="Dia"] layout default
+for_window [class="Dia"] border normal
+
+# Toggle floatting/tiling
+#bindsym $MOD+SHIFT+t floating toggle
+
+# New window default border
+#new_window 1pixel
+new_window pixel 1
+#new_float 1pixel
+new_float pixel 1
+
+# Borderless windows:
+for_window [class="libreoffice|chromium|Chromium|MPlayer|Zathura|Firefox|Geany"] border none
+for_window [instance="drracket|chromium|galculator|feh|leafpad|pcmanfm"] border none
+
+# Hide edge borders
+#hide_edge_borders <none|vertical|horizontal|both>
+hide_edge_borders both 
+
+# Font for window titles. ISO 10646 = Unicode
+#font fixed
+font pango: Source Sans Pro Semibold 11
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Back and Forth
+workspace_auto_back_and_forth yes
+
+# Alt+TAB
+bindsym $mod+Tab focus right
+
+# Alt+TAB Reverse
+bindsym Shift+Tab focus left
+
+# kill focused window
+bindsym $mod+Q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id "i3-dmenu-desktop"
+#bindsym $mod+p exec --no-startup-id dmenu_run -b  -fn '-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*' -nb '#111111' -nf '#555555' -sb '#111111' -sf '#aadb0f'
+
+# SCRATCHPAD CREATE
+bindsym $mod+Shift+plus move scratchpad
+ 
+# SCRATCHPAD SHOW
+bindsym $mod+plus scratchpad show
+
+### CHANGING BORDER STYLE
+bindsym $mod+t border normal
+bindsym $mod+y border pixel 1
+bindsym $mod+u border none
+
+
+### ASSIGN WORKSPACE VARIABLES
+set $WS1 www
+set $WS2 misc
+set $WS3 term
+set $WS4 media
+set $WS5 tmp
+
+### WINDOW CONTROL
+# Float 
+## Float everything
+#for_window [class="[.]*"] floating enable
+#for_window [class=""] floating enable fe
+for_window [class="xpad" instance="scratchpad"] move scratchpad
+for_window [class="Galculator|MPlayer|Gnome-mplayer|Gsimplecal|Viewnior|Alarm-clock|xpad|Java|Clamtk"] floating enable
+for_window [class="File-roller|Lxappearance|Nitrogen|Arandr|Caffeine|Pavucontrol|emulator64-arm|Transmission-gtk|sublime-text"] floating enable
+for_window [title="Preferences|Xfce-notifyd|Skype|TrueCrypt|Catfish|Google Keep|Pocket"] floating enable
+for_window [title="File Operation Progress" class="Thunar"] floating enable
+for_window [title="Share a link on Twitter - Mozilla Firefox" class="Firefox"] floating enable
+for_window [title="Press This - Mozilla Firefox" class="Firefox"] floating enable
+# browser pop-ups
+for_window [window_role="pop-up"] floating enable,move absolute center
+#for_window [class="mousepad"] floating enable
+#for_window [class="mousepad"] floating enable
+#for_window [class="URxvt"] floating enable
+#for_window [title="Browser"] floating enable
+#for_window [title="download"] floating enable
+
+
+### MOVE TO WORKSPACE mws ,ws
+assign [instance="urxvt|termite"] $WS3
+assign [instance="skype|irssi|pcmanfm|lxappearance"] $WS2
+assign [instance="firefox|chromium"] $WS1
+assign [class="Geany|Leafpad"] $WS5
+assign [instance="drracket"] $WS5
+assign [class="MPlayer|Bitcoin|multibit|Dia|Gimp|libreoffice|octave|Octave"] $WS4
+assign [instance="astah"] $WS4
+
+### HANDLE POPUPS
+#popup_during_fullscreen smart
+
+
+### SYSTEM KEYBINDINGS 
+# change focus
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+
+# move focused window
+bindsym $mod+Shift+H move left
+#bindsym $mod+Shift+J move down
+#bindsym $mod+Shift+K move up
+bindsym $mod+Shift+J move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+x layout tabbed
+bindsym $mod+z layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move container to workspace $WS1
+bindsym $mod+Shift+at move container to workspace $WS2
+bindsym $mod+Shift+numbersign move container to workspace $WS3
+bindsym $mod+Shift+dollar move container to workspace $WS4
+bindsym $mod+Shift+percent move container to workspace $WS5
+#bindsym $mod+Shift+asciicircum move container to workspace $WS6
+#bindsym $mod+Shift+ampersand move container to workspace $WS7
+#bindsym $mod+Shift+asterisk move container to workspace $WS8
+#bindsym $mod+Shift+parenleft move container to workspace 9
+#bindsym $mod+Shift+parenright move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+E exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt 
+	# arrow keys #        
+	# bindsym 113 right
+#        bindsym 116 up 
+#        bindsym 111 left 
+#        bindsym 114 down 
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#bindsym $mod+Shift+r mode "resize"
+
+#EXAMPLE USING THE i3 bar
+# Create Reboot, Poweroff bindings
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    #bindsym l exec --no-startup-id $Locker, mode "default"
+    #bindsym s exec --no-startup-id $Locke && systemctl suspend, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    #bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id shutdown -h now, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+Q mode "$mode_system"
+
+### TAKE A SCREENSHOT
+#bindsym Print exec scrot '%Y-%m-%d-%t_$wx$h.png' -e 'mv $f ~/images/screenshots'
+bindsym Print exec scrot '%Y-%m-%d--%T.png' -e 'mv $f ~/images/screenshots'
+#bindsym Print exec $HOME/bin/screen.sh root
+#bindsym Mod1+Print exec $HOME/bin/screen.sh active
+
+# colors
+#class                  border   backgr.  text
+client.focused			#909737	#909737	 #111111
+client.focused_inactive #111111 #111111 #999999
+client.unfocused        #222222 #222222 #999999
+client.urgent           #a5a5a5 #a5a5a5 #2e3436
+client.background       #161616
+
+
+
+###  ADDED KEY BINDINGS  ### kbs
+#bindsym $MOD+Return exec --no-startup-id terminator
+#bindsym $MOD+Return exec --no-startup-id urxvt -g 90x16+15+425
+#bindsym $MOD+Return exec --no-startup-id urxvt -g 90x30
+bindsym $mod+SHIFT+w exec firefox
+bindsym $mod+e exec geany
+#bindsym $mod+i exec urxvt -e irssi
+bindsym $mod+i exec termite -e irssi
+#bindsym $mod+Shift+D exec urxvt -e dia --integrated &
+#bindsym $MOD+P exec urxvt -e htop
+bindsym $MOD+P exec termite -e htop
+bindsym $MOD+W exec sudo -g wireshark wireshark
+bindsym $mod+G exec galculator
+bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+B exec --no-startup-id chromium
+bindsym $mod+Shift+B exec --no-startup-id bitcoin-qt -datadir=/bitcoin/.bitcoin
+bindsym $mod+n exec --no-startup-id pcmanfm
+
+# VOLUME ADJUSTMENT
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '2%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '4%-'"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+#bindsym $MOD+SHIFT+Up exec amixer set Master 5.0%+
+#bindsym $MOD+SHIFT+Down exec amixer set Master 5.0%-
+
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioStop exec "mpc stop"
+bindsym XF86AudioNext exec "mpc next"
+bindsym XF86AudioPrev exec "mpc prev"
+
+
+### START i3bar TO DISPLAY A WORKSPACE BAR (PLUS i3status TO DISPLAY THE SYSTEM INFORMATION)
+# finds out, if available)
+bar {
+	status_command /home/awkness/bin/conky-i3bar
+	tray_output none
+	position top
+	mode dock
+#	font pango:fixed 6
+#	font pango:Droid Sans Bold 14px
+#	font pango:Consolas Bold 14px
+	font xft: Liberation Mono Bold 11
+#	font -*-profont-*-*-*-*-11-*-*-*-*-*-*-*
+
+colors {
+      		background #161616
+      		statusline #605c5a
+# class        	border 	       	backgrd        	text
+	      	focused_workspace  #161616      #909737  #ffffff
+      		active_workspace   #161616 	#161616  #a5a5a5
+      		inactive_workspace #161616 	#545454  #a5a5a5
+		urgent_workspace   #161616      #545454  #a5a5a5
+	}
+}
