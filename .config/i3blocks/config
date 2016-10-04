@@ -1,0 +1,61 @@
+separator=false
+separator_block_width=5
+border_top=0
+border_left=0
+border_right=0
+border_bottom=4
+
+[cpu_usage]
+label= CPU
+command=$HOME/local/bin/cpu_usage
+interval=1
+border=#cc241d
+
+[memory]
+label=  MEM
+interval=1
+command=$HOME/local/bin/memory.sh
+border=#d79921
+
+[temperature]
+label=  TEMP
+command=echo "$($HOME/local/bin/temperature.sh 'Core 0') "
+interval=5
+border=#b16286
+separator=true
+separator_block_width=45
+
+[updates]
+command=$HOME/local/bin/updates.sh
+interval=60
+signal=3
+urgent=false
+border=#98971a
+
+[volume]
+label=    
+command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/local/bin/pavucontrol -t 3 --name "pavucontrol-bar" || true) && $HOME/local/bin/volume_control.py signal) || $HOME/local/bin/volume_control.py toggle ); $HOME/local/bin/volume_control.py i3blocks
+interval=1
+signal=1
+markup=pango
+border=#458588
+
+[bandwidth]
+label=   
+instance=enp3s0
+command=$HOME/local/bin/bandwidth.sh
+interval=5
+
+#[wireless]
+#label=    
+#command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r) "
+#interval=2
+#border=#98971a
+
+[date]
+label=   
+command=echo "`date +'%a %d %b'` | <b>`date +'%T'`</b> "; [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
+interval=1
+markup=pango
+border=#928374
+separator_block_width=0

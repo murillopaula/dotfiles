@@ -1,2 +1,2 @@
 # dotfiles
-![screenshot](https://r.kyaa.sg/ynbvak.png)
+![screenshot](https://r.kyaa.sg/pxbhgp.png)

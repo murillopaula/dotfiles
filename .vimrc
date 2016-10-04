@@ -3,39 +3,45 @@
 runtime! archlinux.vim
 
 " Misc
-set cc=72              " show vertical line
-set hlsearch            " highlight all search patterns matches
-set ignorecase          " case insensitive searching
-set smartcase           " case-sensitive if expresson contains a capital letter
-set number              " show number of lines
-set ruler               " break if it goes beyond the verical line
+set nobomb
+set cc=72                       " show vertical line
+set hlsearch                    " highlight all search patterns matches
+set ignorecase                  " case insensitive searching
+set smartcase                   " case-sensitive if contains capital
+set number                      " show number of lines
+set ruler                       " break if goes beyond the verical line
 set whichwrap+=<,>,h,l
 set autoread
-set showcmd             " show incomplete commands
-set nocompatible        " not compatible with vi
-set pastetoggle=<F2>    " set paste toggle
+set showcmd                     " show incomplete commands
+set nocompatible                " not compatible with vi
+set pastetoggle=<F2>            " set paste toggle
 set cursorline
 set ai
 set si
 set smarttab
-set laststatus=2    " always show the status bar
-set tabstop=2       " The width of a TAB is set to x.
-set shiftwidth=2    " Indents will have a width of x
-set softtabstop=2   " Sets the number of columns for a TAB
-set expandtab      " Expand TABs to spaces
+set laststatus=2                " always show the status bar
+set tabstop=2                   " The width of a TAB is set to x.
+set shiftwidth=2                " Indents will have a width of x
+set softtabstop=2               " Sets the number of columns for a TAB
+set expandtab                   " Expand TABs to spaces
 set encoding=utf-8
-set tw=72           " Set the text width for automatic word wrapping
+set tw=72                       " Set text width for auto word wrapping
+set scrolloff=8
+set sidescrolloff=10
 set wrap
 set modeline
 set colorcolumn=72
-set incsearch           " Search string while typing it
-set nowrapscan          " Stops search at EOF
+set incsearch                   " Search string while typing it
+set nowrapscan                  " Stops search at EOF
 set autochdir                   " Auto change dir to file directory
-set clipboard+=unnamedplus      " Use the OS clipboard by default
+set clipboard+=unnamed
+"set clipboard^=unnamedplus      " Use the OS clipboard by default
 set nostartofline
 set hidden
 filetype on
+filetype plugin indent on
 filetype plugin on
+syntax on
 
 call plug#begin('~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
@@ -44,33 +50,35 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "Plug 'weynhamz/vim-plugin-minibufexpl'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
-syntax enable
-filetype plugin indent on
 
-" Automatic commands
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd FileType vimwiki setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType vimwiki setlocal ts=4 sw=4 softtabstop=4 expandtab
+let g:vimwiki_list = [{'path':'~/local/vimwiki', 'path_html':'~/local/vimwiki_html/'}]
 
 "vim-airline theme
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_right_sep=''
-let g:airline_left_sep=''
 let g:airline_powerline_fonts = 1
-let g:airline_theme='bubblegum'
-colorscheme bubblegum-256-dark
+let g:airline_theme='gruvbox'
+let g:gruvbox_contrast_dark='hard'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ":t"
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+colorscheme gruvbox
 set background=dark
-let g:jellybeans_use_term_italics = 1
-let g:jellybeans_use_lowcolor_black = 1
-let g:jellybeans_use_term_background_color = 1
 set mouse=a
 set splitbelow
 set splitright
@@ -79,26 +87,6 @@ set splitright
 " toggle invisible characters
 set invlist
 set listchars=tab:\|\ ,eol:\ ,space:\ ,trail:⋅,extends:❯,precedes:❮
-
-" nvim configs
-if has("nvim")
-	let g:terminal_color_0  = '#2d2d2d'
-	let g:terminal_color_1  = '#c98e8f'
-	let g:terminal_color_2  = '#8ea68e'
-	let g:terminal_color_3  = '#c2ac7f'
-	let g:terminal_color_4  = '#6b88a4'
-	let g:terminal_color_5  = '#978097'
-	let g:terminal_color_6  = '#5f9898'
-	let g:terminal_color_7  = '#d3d0c8'
-	let g:terminal_color_8  = '#747369'
-	let g:terminal_color_9  = '#c26d70'
-	let g:terminal_color_10 = '#6b996b'
-	let g:terminal_color_11 = '#c79e4d'
-	let g:terminal_color_12 = '#416890'
-	let g:terminal_color_13 = '#6b4c6b'
-	let g:terminal_color_14 = '#3d8888'
-	let g:terminal_color_15 = '#f2f0ec'
-endif
 
 " Improve Neovim startup time by disabling python and host check
 let g:python_host_skip_check = 1
@@ -118,7 +106,7 @@ if !isdirectory(expand(&undodir))
 	call mkdir(expand(&undodir), "p")
 endif
 
-" Persistent Undo, Vim remembers everything even after the file is closed.
+" Persistent Undo, Vim remembers everything even after the file is closed
 set undofile
 set undolevels=500
 set undoreload=500
@@ -127,9 +115,19 @@ set undoreload=500
 "<Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 nnoremap <F8> :setl noai nocin nosi inde=<CR>
-let g:ctrl_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
 
+
+" toggle search highlights
+:noremap  <F4> :set hlsearch! hlsearch?<CR>
+let g:ctrl_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 15000
+let g:ctrlp_working_path_mode = "ra"
+let g:ctrlp_follow_symlinks = 2
+let g:ctrlp_show_hidden = 1
 
 " Greek
 map! <C-v>GA Γ
