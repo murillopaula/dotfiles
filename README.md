@@ -11,3 +11,5 @@ setup:
   - Minimize All
   - Removable Drive Menu
   - Workspace Indicator
+  
+![](./setups/fish_robot.png)
