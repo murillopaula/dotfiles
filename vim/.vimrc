@@ -53,9 +53,8 @@ let NERDTreeQuitOnOpen=1
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd FileType vimwiki setlocal ts=4 sw=4 softtabstop=4 expandtab
-let g:vimwiki_list = [{'path':'~/local/vimwiki', 'path_html':'~/local/vimwiki_html/'}]
+let g:vimwiki_list = [{'path':'~/vimwiki', 'path_html':'~/vimwiki_html/'}]
 
-set background=dark
 set mouse=a
 set splitbelow
 set splitright

@@ -1,8 +1,14 @@
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='ls --color=auto --show-control-chars --group-directories-first -AhXF'
+alias ll='ls --color=auto --show-control-chars --group-directories-first -AlshXF'
+alias rm='rm -vI'
+alias cp='cp -vi'
+alias mv='mv -vi'
+alias ln='ln -vi'
+alias mkdir='mkdir -vp'
+alias grep='grep --color=auto'
+alias chmod='chmod -c --preserve-root'
+alias chown='chown -c --preserve-root'
+alias chgrp='chgrp -c --preserve-root'
 
-export SHELL=/usr/bin/fish
-
-set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
+set fish_function_path $fish_function_path "/usr/local/lib/python2.7/dist-packages/powerline/bindings/fish"
 powerline-setup
