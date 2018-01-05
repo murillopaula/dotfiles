@@ -1,0 +1,12 @@
+* Gnome extensions:
+  - Frippery Applications Menu
+  - Places Status Indicator
+  - Status Area Horizontal Spacing
+  - Steal My Focus
+  - Transparent Notification
+  - Ubuntu AppIndicators
+  - Ubuntu Dock
+  - User Themes
+  - Dash to Panel
+  - Removable Drive Menu
+  - Workspace Indicator
