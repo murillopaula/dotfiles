@@ -8,7 +8,6 @@ setup:
 - Powerline status line for fish and vim
 - [Gogh's Hybrid](https://github.com/Mayccoll/Gogh/blob/master/content/themes.md#hybrid) Gnome Terminal profile
 - Gnome extensions:
-  - Clipboard Indicator
   - Frippery Applications Menu
   - Places Status Indicator
   - Status Area Horizontal Spacing
@@ -18,8 +17,7 @@ setup:
   - Ubuntu Dock
   - User Themes
   - Dash to Panel
-  - Minimize All
   - Removable Drive Menu
   - Workspace Indicator
-  
+
 ![](./setups/flat-af.png)
