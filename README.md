@@ -2,7 +2,7 @@
 
 trying to use [GNU stow](https://www.gnu.org/software/stow/) to manage all this shit.
 
-- Ubuntu 17.10
+- Ubuntu 18.04
 - fish shell
 - Powerline status line for fish and vim
 - [Gogh's Hybrid](https://github.com/Mayccoll/Gogh/blob/master/content/themes.md#hybrid) Gnome Terminal profile
