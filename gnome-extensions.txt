@@ -1,5 +1,4 @@
-* Gnome extensions:
-  - Removable Drive Menu
-  - Workspace Indicator
-  - Alternatetab
-  - Dash to panel
+* Removable Drive Menu
+* Workspace Indicator
+* Alternatetab
+* Dash to panel
