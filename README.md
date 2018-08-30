@@ -1,4 +1,4 @@
-# dotfiles: blue and simple
+# dotfiles: simple
 
 Trying to use [GNU stow](https://www.gnu.org/software/stow/) to manage all this shit.
 
@@ -7,4 +7,3 @@ Trying to use [GNU stow](https://www.gnu.org/software/stow/) to manage all this 
 - Powerline status line for fish and vim
 
 ![](./setups/blue-and-simple.png)
-![](./setups/blue-and-simple-2.png)
