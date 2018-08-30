@@ -6,4 +6,5 @@ Trying to use [GNU stow](https://www.gnu.org/software/stow/) to manage all this 
 - fish shell
 - Powerline status line for fish and vim
 
-![](./setups/blue-and-simple.png)
+![](./setups/simple.png)
+![](./setups/simple-2.png)
