@@ -10,5 +10,5 @@ alias chmod='chmod -c --preserve-root'
 alias chown='chown -c --preserve-root'
 alias chgrp='chgrp -c --preserve-root'
 
-set fish_function_path $fish_function_path "/usr/local/lib/python2.7/dist-packages/powerline/bindings/fish"
+set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
 powerline-setup
