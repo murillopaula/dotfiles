@@ -1,6 +1,5 @@
 " Misc
 set nobomb
-set cc=80                       " show vertical line
 set hlsearch                    " highlight all search patterns matches
 set ignorecase                  " case insensitive searching
 set smartcase                   " case-sensitive if contains capital
@@ -27,7 +26,6 @@ set scrolloff=8
 set sidescrolloff=10
 set wrap
 set modeline
-set colorcolumn=80
 set incsearch                   " Search string while typing it
 set nowrapscan                  " Stops search at EOF
 set autochdir                   " Auto change dir to file directory
@@ -40,25 +38,9 @@ filetype plugin indent on
 filetype plugin on
 syntax on
 
-call plug#begin('~/.vim/plugged')
-Plug 'vimwiki/vimwiki'
-Plug 'scrooloose/nerdtree'
-Plug 'ervandew/supertab'
-Plug 'powerline/powerline', {'rtp' : 'powerline/bindings/vim'}
-call plug#end()
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=1
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd FileType vimwiki setlocal ts=4 sw=4 softtabstop=4 expandtab
-let g:vimwiki_list = [{'path':'~/vimwiki', 'path_html':'~/vimwiki_html/'}]
-
 set mouse=a
 set splitbelow
 set splitright
-"let g:miniBufExplorerAutoStart = 0
 
 " toggle invisible characters
 set invlist
