@@ -1,10 +1,3 @@
-# dotfiles: simple
+# dotfiles
 
-Trying to use [GNU stow](https://www.gnu.org/software/stow/) to manage all this shit.
-
-- Ubuntu 18.04
-- fish shell
-- Powerline status line for fish and vim
-
-![](./setups/simple.png)
-![](./setups/simple-2.png)
+Using [GNU stow](https://www.gnu.org/software/stow/) to manage my dotfiles. Currently my operating system is Windows 10, my code editor is Visual Studio Code and I use WSL (best thing that ever happened in technology in the past decade or so) to program anything in Linux.
