@@ -42,10 +42,6 @@ set mouse=a
 set splitbelow
 set splitright
 
-" toggle invisible characters
-set invlist
-set listchars=tab:\|\ ,eol:\ ,space:\ ,trail:⋅,extends:❯,precedes:❮
-
 " Set backup/undo dirs
 set backupdir=~/.config/vim/tmp/backups//
 set undodir=~/.config/vim/tmp/undo//
