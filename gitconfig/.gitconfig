@@ -1,6 +1,6 @@
 [user]
-  name = Murillo R. Paula
-  email = murillorpaula@gmail.com
+  name = Murillo Rodrigues de Paula
+  email = murillopaula@americashealth.com.br
 [core]
   editor = vim
 [alias]
@@ -9,3 +9,5 @@
   commend = commit --amend --no-edit
   it = !git init && git commit -m \"root\" --allow-empty
   shorty = status --short --branch
+[credential]
+  helper = store
