@@ -38,7 +38,7 @@ filetype plugin indent on
 filetype plugin on
 syntax on
 
-set mouse=a
+set mouse=v
 set splitbelow
 set splitright
 
