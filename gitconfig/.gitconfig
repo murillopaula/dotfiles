@@ -2,12 +2,6 @@
   name = Murillo Paula
   email = murillo@murillopaula.com
 [core]
-  editor = vim
-[alias]
-  logp = log -p --pretty=format:\"%h, %ar (%ad) - %s\"
-  grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
-  commend = commit --amend --no-edit
-  it = !git init && git commit -m \"root\" --allow-empty
-  shorty = status --short --branch
+  editor = code --wait
 [credential]
   helper = store
